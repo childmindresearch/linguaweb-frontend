@@ -47,6 +47,9 @@
 <div class="flex content-center justify-center mb-10">
 	<TaskList bind:tasks />
 </div>
+
+<Score bind:score bind:maxScore />
+
 {#if tasks.length > 0 && currentWordId}
 	{#key currentTask}
 		{#key currentWordId}
@@ -61,5 +64,3 @@
 {:else}
 	<p>Please select a task.</p>
 {/if}
-
-<Score bind:score bind:maxScore />
