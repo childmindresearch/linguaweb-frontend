@@ -1,30 +1,23 @@
-<!--
-The layout component for the application.
-
-@slot - The content to be displayed in the main section of the layout.
--->
-<script>
-	import Navbar from '$lib/components/Navbar.svelte';
+<script lang="ts">
 	import '../app.postcss';
+
+	import { AppShell } from '@skeletonlabs/skeleton';
+	import NavBar from '$lib/components/NavBar.svelte';
+
+	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
+	import { storePopup } from '@skeletonlabs/skeleton';
+
+	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 </script>
 
-<div class="app bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400 antialiased">
-	<Navbar brandText="Linguaweb" />
-	<main class="pt-5 w-full">
+<svelte:head>
+	<title>LinguaWeb</title>
+</svelte:head>
+<AppShell>
+	<svelte:fragment slot="header">
+		<NavBar />
+	</svelte:fragment>
+	<div class="max-w-screen-md mx-auto mt-5 px-5">
 		<slot />
-	</main>
-</div>
-
-<style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-
-	main {
-		flex-grow: 1;
-		max-width: 85%;
-		margin: 0 auto;
-	}
-</style>
+	</div>
+</AppShell>

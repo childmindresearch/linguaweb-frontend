@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { type Word, getWord, getSpeechTranscript } from '$lib/api';
-	import { P, Spinner } from 'flowbite-svelte';
 	import { createEventDispatcher } from 'svelte';
 	import SpeechRecorder from '$lib/components/SpeechRecorder.svelte';
+	import LoadingBar from '$lib/components/LoadingBar.svelte';
 
 	export let wordId: number;
 
@@ -20,17 +20,17 @@
 </script>
 
 {#if lastWord}
-	<P>
+	<p>
 		The word we heard was '<b>{lastWord}</b>'.
-	</P>
+	</p>
 {/if}
 
 {#await targetWord}
-	<Spinner />
+	<LoadingBar />
 {:then word}
-	Please say the following word:
+	<h4 class="h4 font-semibold">Please say the following word:</h4>
 	<b>{word.word}</b>
 	<SpeechRecorder on:stop={onStopRecording} />
 {:catch error}
-	<P>{error.message}</P>
+	<p>{error.message}</p>
 {/await}
