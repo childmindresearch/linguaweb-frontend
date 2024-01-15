@@ -1,10 +1,11 @@
 <script lang="ts">
 	import type { Word } from '$lib/api';
-	import { Button } from 'flowbite-svelte';
+	import { capitalizeFirstLetter } from '$lib/utils';
 	import { createEventDispatcher } from 'svelte';
 
 	export let correct: Word;
 	export let distractors: Word[];
+	export let center: boolean = true;
 
 	const choices = [correct, ...distractors]
 		.map((word) => word.word)
@@ -12,6 +13,16 @@
 	const dispatch = createEventDispatcher();
 
 	let colors = Array(choices.length).fill('blue');
+
+	let divClassNames = '';
+	if (center) {
+		divClassNames = `
+			flex
+			justify-center
+			items-center
+			space-x-5
+		`;
+	}
 
 	function checkResponse(event: Event, choice: string) {
 		event.preventDefault();
@@ -25,8 +36,16 @@
 	}
 </script>
 
-{#each choices as choice, index}
-	<span>
-		<Button color={colors[index]} on:click={(e) => checkResponse(e, choice)}>{choice}</Button>
-	</span>
-{/each}
+<div class={divClassNames}>
+	{#each choices as choice}
+		<span>
+			<button
+				type="button"
+				class="btn variant-filled-secondary"
+				on:click={(e) => checkResponse(e, choice)}
+			>
+				{capitalizeFirstLetter(choice)}
+			</button>
+		</span>
+	{/each}
+</div>

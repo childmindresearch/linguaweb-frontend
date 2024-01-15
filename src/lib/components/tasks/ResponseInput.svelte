@@ -1,13 +1,17 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
 
+	export let placeholder = '';
+
 	let inputElement: HTMLInputElement;
 
 	const dispatch = createEventDispatcher();
 
 	function checkResponse(event: KeyboardEvent) {
 		event.preventDefault();
-		dispatch('keyup', inputElement.value);
+		if (event.key === 'Enter') {
+			dispatch('keyup', inputElement.value);
+		}
 	}
 
 	onMount(() => {
@@ -16,8 +20,9 @@
 </script>
 
 <input
-	class="form-input mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+	class="input pl-2 max-w-56"
 	type="text"
+	{placeholder}
 	bind:this={inputElement}
 	on:keyup={checkResponse}
 />

@@ -42,10 +42,11 @@
 	});
 
 	$: if (!tasks.includes(currentTask)) setNextTask();
-	$: console.log(tasks, ids, currentWordId);
 </script>
 
-<TaskList bind:tasks />
+<div class="flex content-center justify-center mb-10">
+	<TaskList bind:tasks />
+</div>
 {#if tasks.length > 0 && currentWordId}
 	{#key currentTask}
 		{#key currentWordId}

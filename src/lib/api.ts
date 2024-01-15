@@ -1,20 +1,20 @@
 const API_ROUTE = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
 
 export type TaskName =
-	| 'synonyms'
 	| 'antonyms'
 	| 'description'
 	| 'jeopardy'
 	| 'listening'
-	| 'speech';
+	| 'speech'
+	| 'synonyms';
 export type WritingTaskName = 'synonyms' | 'antonyms' | 'description' | 'jeopardy';
 export const taskNames: TaskName[] = [
-	'synonyms',
 	'antonyms',
 	'description',
 	'jeopardy',
 	'listening',
-	'speech'
+	'speech',
+	'synonyms'
 ];
 
 export interface Word {

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Button } from 'flowbite-svelte';
 	import { createEventDispatcher, onDestroy, onMount } from 'svelte';
 
 	const dispatch = createEventDispatcher();
@@ -43,4 +42,4 @@
 </script>
 
 <audio />
-<Button on:click={toggleRecording}>{recordText}</Button>
+<button on:click={toggleRecording} class="btn variant-filled-secondary">{recordText}</button>

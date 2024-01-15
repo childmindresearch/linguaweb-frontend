@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Button } from 'flowbite-svelte';
 	import { onDestroy, onMount } from 'svelte';
 
 	export let audioBlob: Blob;
@@ -22,4 +21,4 @@
 
 <audio bind:this={audioRef} src={audioUrl} />
 
-<Button on:click={playAudio}>Play</Button>
+<button class="btn variant-filled-surface" on:click={playAudio}>Play</button>
