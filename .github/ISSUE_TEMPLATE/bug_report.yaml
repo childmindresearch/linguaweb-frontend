@@ -2,7 +2,7 @@ name: "Bug Report"
 description: "This is a template for reporting a bug."
 title: "Bug: "
 labels: ["bug"]
-projects: ["cmi-dair/4"]
+projects: ["childmindresearch/4"]
 assignees: ["ReinderVosDeWael"]
 body:
   - type: textarea

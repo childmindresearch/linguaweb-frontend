@@ -2,7 +2,7 @@ name: "Development Task"
 description: "This is a template for a development task."
 title: "Task: "
 labels: ["task"]
-projects: ["cmi-dair/4"]
+projects: ["childmindresearch/4"]
 assignees: ["ReinderVosDeWael"]
 body:
   - type: textarea
