@@ -12,7 +12,7 @@
 		.sort(() => Math.random() - 0.5);
 	const dispatch = createEventDispatcher();
 
-	let colors = Array(choices.length).fill('blue');
+	let colors = Array(choices.length).fill('variant-filled-primary');
 
 	let divClassNames = '';
 	if (center) {
@@ -29,19 +29,19 @@
 		dispatch('click', choice);
 		const index = choices.indexOf(choice);
 		if (choice === correct.word) {
-			colors[index] = 'green';
+			colors[index] = 'variant-filled-success';
 		} else {
-			colors[index] = 'red';
+			colors[index] = 'variant-filled-error';
 		}
 	}
 </script>
 
 <div class={divClassNames}>
-	{#each choices as choice}
+	{#each choices as choice, index}
 		<span>
 			<button
 				type="button"
-				class="btn variant-filled-secondary"
+				class={'btn ' + colors[index]}
 				on:click={(e) => checkResponse(e, choice)}
 			>
 				{capitalizeFirstLetter(choice)}

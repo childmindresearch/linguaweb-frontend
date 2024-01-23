@@ -13,10 +13,10 @@
 
 <ListBox multiple class="flex flex-wrap space-x-3" spacing="">
 	{#each taskNames as task}
-		<ListBoxItem bind:group={tasks} name={task} value={task} class="mb-2"
-			><div class="select-none">
+		<ListBoxItem bind:group={tasks} name={task} value={task} class="mb-2">
+			<div class="select-none">
 				{capitalizeFirstLetter(task)}
-			</div></ListBoxItem
-		>
+			</div>
+		</ListBoxItem>
 	{/each}
 </ListBox>

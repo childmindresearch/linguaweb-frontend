@@ -67,6 +67,6 @@
 					</nav>
 				</div>
 			</div>
-		</div></svelte:fragment
-	>
+		</div>
+	</svelte:fragment>
 </AppBar>
