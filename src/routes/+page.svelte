@@ -48,17 +48,12 @@
 	<TaskList bind:tasks />
 </div>
 
-<Score bind:score bind:maxScore />
+<Score {score} {maxScore} />
 
 {#if tasks.length > 0 && currentWordId}
 	{#key currentTask}
 		{#key currentWordId}
-			<TaskHandler
-				bind:task={currentTask}
-				bind:wordId={currentWordId}
-				bind:distractorIds
-				on:check={onCheck}
-			/>
+			<TaskHandler task={currentTask} wordId={currentWordId} {distractorIds} on:check={onCheck} />
 		{/key}
 	{/key}
 {:else}

@@ -1,32 +1,17 @@
 <script lang="ts">
 	import { ProgressRadial } from '@skeletonlabs/skeleton';
 
-	export let width: number = 10;
-	export let height: number = 10;
-	export let center: boolean = true;
-	export let stroke: number = 100;
+	export let value: number | undefined = undefined;
+	export let label: string | undefined = undefined;
 
-	const radialClassNames = `
-        w-${width}
-        h-${height}
-    `;
-	let divClassNames = '';
-	if (center) {
-		divClassNames = `
-            flex
-            justify-center
-            items-center
-        `;
-	}
+	const stroke = 100;
+	const width = 'w-12';
+	const strokeLinecap = 'round';
 </script>
 
-<div class={divClassNames}>
-	<ProgressRadial
-		value={undefined}
-		{stroke}
-		meter="stroke-primary-500"
-		track="stroke-primary-500/30"
-		strokeLinecap="round"
-		class={radialClassNames}
-	/>
+<div class="mr-auto flex justify-center items-center">
+	<ProgressRadial {value} {stroke} {width} {strokeLinecap} />
 </div>
+{#if label}
+	<p class="text-center text-md pt-2">{label}</p>
+{/if}
