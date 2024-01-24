@@ -4,6 +4,7 @@
 	import { getWordIds, postCheckWord, type TaskName } from '$lib/api';
 	import { onMount } from 'svelte';
 	import TaskHandler from '$lib/components/tasks/TaskHandler.svelte';
+	import LoadingBar from '$lib/components/LoadingBar.svelte';
 
 	let score = 0;
 	let maxScore = 0;
@@ -50,7 +51,9 @@
 
 <Score {score} {maxScore} />
 
-{#if tasks.length > 0 && currentWordId}
+{#if ids.length == 0}
+	<LoadingBar label="Starting up, please wait a moment..." />
+{:else if tasks.length > 0 && currentWordId}
 	{#key currentTask}
 		{#key currentWordId}
 			<TaskHandler task={currentTask} wordId={currentWordId} {distractorIds} on:check={onCheck} />
