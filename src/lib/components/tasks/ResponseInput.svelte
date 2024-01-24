@@ -19,10 +19,4 @@
 	});
 </script>
 
-<input
-	class="input pl-2 max-w-56"
-	type="text"
-	{placeholder}
-	bind:this={inputElement}
-	on:keyup={checkResponse}
-/>
+<input class="input" type="text" {placeholder} bind:this={inputElement} on:keyup={checkResponse} />
