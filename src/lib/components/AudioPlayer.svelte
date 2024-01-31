@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { onDestroy, onMount } from 'svelte';
+	import { onMount } from 'svelte';
+	import { PlaySolid } from 'flowbite-svelte-icons';
 
 	export let audioBlob: Blob;
 
@@ -10,15 +11,16 @@
 		audioRef.play();
 	}
 
-	onDestroy(() => {
-		URL.revokeObjectURL(audioUrl);
-	});
-
 	onMount(() => {
 		playAudio();
+		return () => {
+			URL.revokeObjectURL(audioUrl);
+		};
 	});
 </script>
 
 <audio bind:this={audioRef} src={audioUrl} />
 
-<button class="btn variant-filled-surface" on:click={playAudio}>Play</button>
+<button class="btn variant-filled-surface" on:click={playAudio}>
+	<PlaySolid class="mr-2" /> Play
+</button>

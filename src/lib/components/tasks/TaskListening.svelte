@@ -1,26 +1,38 @@
 <script lang="ts">
-	import { getWordAudio } from '$lib/api';
+	import { getSpeechTranscript, getWordAudio } from '$lib/api';
 	import { createEventDispatcher } from 'svelte';
 	import AudioPlayer from '../AudioPlayer.svelte';
 	import ResponseInput from './ResponseInput.svelte';
 	import LoadingBar from '$lib/components/LoadingBar.svelte';
+	import SpeechRecorder from '../SpeechRecorder.svelte';
 
 	export let wordId: number;
 
 	let wordAudio = getWordAudio(wordId);
+	let lastWord: string = '';
 
 	let dispatch = createEventDispatcher();
-	function onCheck(event: CustomEvent) {
-		dispatch('check', event.detail);
+	async function onStopRecording(event: CustomEvent) {
+		event.preventDefault();
+		const blob = event.detail;
+
+		lastWord = await getSpeechTranscript(blob);
+		dispatch('check', lastWord);
 	}
 </script>
+
+{#if lastWord}
+	<p>
+		The word we heard was '<b>{lastWord}</b>'.
+	</p>
+{/if}
 
 {#await wordAudio}
 	<LoadingBar />
 {:then audioBlob}
-	<div class="flex flex-col items-center space-y-2">
+	<div class="flex flex-col items-center space-y-8">
 		<AudioPlayer {audioBlob} />
-		<ResponseInput on:keyup={onCheck} placeholder="What word did you hear?" />
+		<SpeechRecorder on:stop={onStopRecording} />
 	</div>
 {:catch error}
 	<p>{error.message}</p>

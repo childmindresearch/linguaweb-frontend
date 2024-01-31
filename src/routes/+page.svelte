@@ -45,12 +45,12 @@
 	$: if (!tasks.includes(currentTask)) setNextTask();
 </script>
 
+<div class="score">
+	<Score {score} {maxScore} />
+</div>
 <div class="flex content-center justify-center mb-10">
 	<TaskList bind:tasks />
 </div>
-
-<Score {score} {maxScore} />
-
 {#if ids.length == 0}
 	<LoadingBar label="Starting up, please wait a moment..." />
 {:else if tasks.length > 0 && currentWordId}
@@ -62,3 +62,11 @@
 {:else}
 	<p>Please select a task.</p>
 {/if}
+
+<style>
+	.score {
+		position: absolute;
+		right: 2.75rem;
+		top: 6.1rem;
+	}
+</style>

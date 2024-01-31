@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { createEventDispatcher, onDestroy, onMount } from 'svelte';
-
-	const dispatch = createEventDispatcher();
+	import { MicrophoneSolid } from 'flowbite-svelte-icons';
 
 	let mediaRecorder: MediaRecorder;
 	let media: Blob[] = [];
 	let recordText: string = 'Record';
+
+	const dispatch = createEventDispatcher();
 
 	function toggleRecording(event: Event) {
 		event.preventDefault();
@@ -42,4 +43,7 @@
 </script>
 
 <audio />
-<button on:click={toggleRecording} class="btn variant-filled-secondary">{recordText}</button>
+<button on:click={toggleRecording} class="btn variant-filled-secondary">
+	<MicrophoneSolid class="mr-2" />
+	{recordText}
+</button>

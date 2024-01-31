@@ -38,6 +38,7 @@
 	"type": "module",
 	"dependencies": {
 		"@floating-ui/dom": "^1.5.4",
-		"@sveltejs/adapter-static": "^3.0.1"
+		"@sveltejs/adapter-static": "^3.0.1",
+		"flowbite-svelte-icons": "^1.0.3"
 	}
 }
