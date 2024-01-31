@@ -9,10 +9,10 @@
 	export let distractorIds: number[];
 
 	const taskDescription: Record<WritingTaskName, string> = {
-		synonyms: 'Find the synonym.',
-		antonyms: 'Find the antonym.',
-		description: 'What word is described?',
-		jeopardy: 'Guess the word.'
+		synonyms: 'Guess the synonym for the following words:',
+		antonyms: 'Guess the antonym for the following words:',
+		description: 'Guess the word that matches the description:',
+		jeopardy: 'Answer the Jeopardy-style question with a single word answer:'
 	};
 
 	let targetWord: Word;
