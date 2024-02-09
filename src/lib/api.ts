@@ -18,8 +18,8 @@ export interface WordCheckRequest {
 	word: string;
 }
 
-export const getWordIds = async (): Promise<number[]> => {
-	const response = await fetch(`${API_ROUTE}/words`);
+export const getWordIds = async (language: string, age: number): Promise<number[]> => {
+	const response = await fetch(`${API_ROUTE}/words?language=${language}&age=${age}`);
 	return response.json();
 };
 
@@ -33,9 +33,10 @@ export const getWordAudio = async (id: number): Promise<Blob> => {
 	return response.blob();
 };
 
-export const getSpeechTranscript = async (audio: Blob): Promise<string> => {
+export const getSpeechTranscript = async (audio: Blob, language: string): Promise<string> => {
 	const formData = new FormData();
 	formData.append('audio', audio);
+	formData.append('language', language);
 
 	const response = await fetch(`${API_ROUTE}/speech/transcribe`, {
 		method: 'POST',
