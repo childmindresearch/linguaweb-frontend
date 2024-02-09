@@ -1,0 +1,25 @@
+{
+    "title": "Raad het Woord!",
+    "tasks": {
+        "synonyms": {
+            "title": "Synoniemen",
+            "description": "Vind het woord dat het meest vergelijkbaar is in betekenis met de gegeven woorden."
+        },
+        "antonyms": {
+            "title": "Antoniemen",
+            "description": "Vind het woord dat het meest tegengesteld is in betekenis aan de gegeven woorden."
+        },
+        "description": {
+            "title": "Beschrijving",
+            "description": "Vind het woord dat wordt beschreven."
+        },
+        "jeopardy": {
+            "title": "Jeopardy",
+            "description": "Beantwoord de vraag in Jeopardy-stijl met een enkel woord als antwoord."
+        },
+        "sound": {
+            "title": "Geluid",
+            "description": "Herhaal het woord dat je hoort."
+        }
+    }
+}

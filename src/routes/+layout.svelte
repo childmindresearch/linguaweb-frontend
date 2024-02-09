@@ -4,6 +4,18 @@
 	import { AppShell, autoModeWatcher, storePopup } from '@skeletonlabs/skeleton';
 	import { onMount } from 'svelte';
 	import '../app.postcss';
+	import { _, addMessages, getLocaleFromNavigator, init } from 'svelte-i18n';
+	import en from '../lang/en-US.json';
+	import fr from '../lang/fr-FR.json';
+	import nl from '../lang/nl-NL.json';
+
+	addMessages('en-US', en);
+	addMessages('fr-FR', fr);
+	addMessages('nl-NL', nl);
+	init({
+		fallbackLocale: 'en-US',
+		initialLocale: getLocaleFromNavigator()
+	});
 
 	onMount(() => {
 		autoModeWatcher();

@@ -2,7 +2,7 @@
 	import { getSpeechTranscript, getWordAudio } from '$lib/api';
 	import { createEventDispatcher } from 'svelte';
 	import AudioPlayer from '../AudioPlayer.svelte';
-	import ResponseInput from './ResponseInput.svelte';
+	import { locale } from 'svelte-i18n';
 	import LoadingBar from '$lib/components/LoadingBar.svelte';
 	import SpeechRecorder from '../SpeechRecorder.svelte';
 
@@ -15,8 +15,9 @@
 	async function onStopRecording(event: CustomEvent) {
 		event.preventDefault();
 		const blob = event.detail;
+		const language = ($locale && $locale.split('-')[0]) || 'en';
 
-		lastWord = await getSpeechTranscript(blob);
+		lastWord = await getSpeechTranscript(blob, language);
 		dispatch('check', lastWord);
 	}
 </script>

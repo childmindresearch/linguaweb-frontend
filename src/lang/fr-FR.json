@@ -1,0 +1,25 @@
+{
+    "title": "Devinez le Mot!",
+    "tasks": {
+        "synonyms": {
+            "title": "Synonymes",
+            "description": "Trouvez le mot qui a le plus de sens similaire aux mots donnés."
+        },
+        "antonyms": {
+            "title": "Antonymes",
+            "description": "Trouvez le mot qui a le sens le plus opposé aux mots donnés."
+        },
+        "description": {
+            "title": "Description",
+            "description": "Trouvez le mot qui est décrit."
+        },
+        "jeopardy": {
+            "title": "Jeopardy",
+            "description": "Répondez à la question de style Jeopardy avec une seule réponse mot."
+        },
+        "sound": {
+            "title": "Son",
+            "description": "Répétez le mot que vous entendez."
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "title": "Guess the Word!",
+    "tasks": {
+        "synonyms": {
+            "title": "Synonyms",
+            "description": "Find the word that is most similar in meaning to the given words."
+        },
+        "antonyms": {
+            "title": "Antonyms",
+            "description": "Find the word that is most opposite in meaning to the given words."
+        },
+        "description": {
+            "title": "Description",
+            "description": "Find the word that is described."
+        },
+        "jeopardy": {
+            "title": "Jeopardy",
+            "description": "Answer the Jeopardy-style question with a single word answer."
+        },
+        "sound": {
+            "title": "Sound",
+            "description": "Repeat the word that you hear."
+        }
+    }
+}
