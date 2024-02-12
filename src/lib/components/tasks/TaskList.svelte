@@ -12,7 +12,7 @@
 </script>
 
 <div>
-	<div class="border-b mb-3"><p class="text-center h3">{$_('title')}</p></div>
+	<div class="border-b mb-3"><p class="text-center text-2xl font-semibold">{$_('title')}</p></div>
 	<ListBox multiple class="flex flex-wrap space-x-3" spacing="">
 		{#key $locale}
 			{#each taskNames as task}
