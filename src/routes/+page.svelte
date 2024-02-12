@@ -86,6 +86,6 @@
 	.score {
 		position: absolute;
 		right: 2.75rem;
-		top: 6.8rem;
+		top: 6.7rem;
 	}
 </style>

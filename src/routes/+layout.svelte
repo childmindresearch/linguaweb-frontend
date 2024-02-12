@@ -34,4 +34,11 @@
 	<div class="max-w-screen-md mx-auto mt-5 px-5">
 		<slot />
 	</div>
+	<svelte:fragment slot="footer">
+		<div class="flex w-full">
+			<div class="absolute bottom-5 right-11">
+				<img class="h-10" src="/child-mind-institute-logo.svg" alt="Child Mind Institute" />
+			</div>
+		</div>
+	</svelte:fragment>
 </AppShell>
