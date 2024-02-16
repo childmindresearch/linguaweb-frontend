@@ -2,7 +2,7 @@
 	import { getSpeechTranscript, getWordAudio } from '$lib/api';
 	import { createEventDispatcher } from 'svelte';
 	import AudioPlayer from '../AudioPlayer.svelte';
-	import { locale } from 'svelte-i18n';
+	import { _, locale } from 'svelte-i18n';
 	import LoadingBar from '$lib/components/LoadingBar.svelte';
 	import SpeechRecorder from '../SpeechRecorder.svelte';
 
@@ -32,6 +32,7 @@
 	<LoadingBar />
 {:then audioBlob}
 	<div class="flex flex-col items-center space-y-8">
+		<h4 class="h4 font-semibold">{$_('tasks.sound.description')}</h4>
 		<AudioPlayer {audioBlob} />
 		<SpeechRecorder on:stop={onStopRecording} />
 	</div>

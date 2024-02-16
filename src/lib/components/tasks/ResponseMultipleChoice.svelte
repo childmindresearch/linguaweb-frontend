@@ -26,12 +26,12 @@
 		if (choice === correct.word) {
 			colors[index] = 'variant-filled-success';
 			isCorrect = true;
-			const audio = new Audio('sounds/correct.mp3');
+			const audio = new Audio('audio/correct.mp3');
 			audio.play();
 		} else {
 			colors[index] = 'variant-filled-error';
 			isCorrect = false;
-			const audio = new Audio('sounds/wrong.mp3');
+			const audio = new Audio('audio/wrong.mp3');
 			audio.play();
 		}
 		const delay_time = isCorrect ? 1000 : 0;
@@ -41,12 +41,12 @@
 	}
 </script>
 
-<div class="flex justify-center items-center space-x-5">
+<div class="grid grid-cols-2 gap-y-5">
 	{#each choices as choice, index}
-		<div class="relative">
+		<div class="relative flex justify-center items-center">
 			<button
 				type="button"
-				class={'btn ' + colors[index]}
+				class={'btn btn-xl min-w-36 ' + colors[index]}
 				disabled={isCorrect}
 				on:click={(e) => checkResponse(e, choice)}
 			>
