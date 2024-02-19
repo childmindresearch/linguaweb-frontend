@@ -16,7 +16,12 @@
 	<span class="font-semibold">Tasks</span>
 </button>
 <div class="card p-4 w-60 shadow-xl" data-popup="tasks">
-	<ListBox multiple class="flex flex-wrap gap-x-3 justify-center" spacing="">
+	<ListBox
+		multiple
+		class="flex flex-wrap gap-x-3 justify-center"
+		spacing=""
+		active="variant-filled-primary"
+	>
 		{#key $locale}
 			{#each taskNames as task}
 				<ListBoxItem

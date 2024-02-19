@@ -1,8 +1,7 @@
 <script lang="ts">
 	import NavBar from '$lib/components//NavBar/NavBar.svelte';
 	import { arrow, autoUpdate, computePosition, flip, offset, shift } from '@floating-ui/dom';
-	import { AppShell, autoModeWatcher, initializeStores, storePopup } from '@skeletonlabs/skeleton';
-	import { onMount } from 'svelte';
+	import { AppShell, initializeStores, modeCurrent, storePopup } from '@skeletonlabs/skeleton';
 	import '../app.postcss';
 	import { _, addMessages, getLocaleFromNavigator, init } from 'svelte-i18n';
 	import en from '../lang/en-US.json';
@@ -17,11 +16,10 @@
 		initialLocale: getLocaleFromNavigator()
 	});
 
-	onMount(() => {
-		autoModeWatcher();
-	});
-
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
+
+	// Enforce light mode while dark mode is not ready yet.
+	$modeCurrent = true;
 </script>
 
 <svelte:head>
