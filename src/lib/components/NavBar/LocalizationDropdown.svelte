@@ -32,7 +32,7 @@
 						class="option w-full h-full"
 						type="submit"
 						on:click={() => locale.set(code)}
-						name="theme"
+						name="localization"
 						value={code}
 						class:bg-primary-active-token={$locale === code}
 					>

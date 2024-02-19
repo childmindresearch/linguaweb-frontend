@@ -20,7 +20,7 @@
 						class="option w-full h-full"
 						type="submit"
 						on:click={() => ageStore.set(age)}
-						name="theme"
+						name="age"
 						value={age}
 						class:bg-primary-active-token={$ageStore === age}
 					>
