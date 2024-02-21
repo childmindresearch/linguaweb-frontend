@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ListBox, ListBoxItem, popup } from '@skeletonlabs/skeleton';
+	import { popup } from '@skeletonlabs/skeleton';
 	import { taskNames } from '$lib/api';
 	import { taskStore } from '$lib/store';
 	import { _, locale } from 'svelte-i18n';
@@ -15,26 +15,15 @@
 >
 	<span class="font-semibold">Tasks</span>
 </button>
-<div class="card p-4 w-60 shadow-xl" data-popup="tasks">
-	<ListBox
-		multiple
-		class="flex flex-wrap gap-x-3 justify-center"
-		spacing=""
-		active="variant-filled-primary"
-	>
+<div class="card p-4 w-40 shadow-xl" data-popup="tasks">
+	<div class="flex flex-wrap gap-x-3">
 		{#key $locale}
 			{#each taskNames as task}
-				<ListBoxItem
-					bind:group={tasks}
-					name={task}
-					value={task}
-					class={'mb-2 min-w-28 text-center justify-center'}
-				>
-					<div class="select-none">
-						{$_('tasks.' + task + '.title')}
-					</div>
-				</ListBoxItem>
+				<label class="mb-2 min-w-28">
+					<input class="checkbox" type="checkbox" name={task} bind:group={tasks} value={task} />
+					<span class="select-none">{$_('tasks.' + task + '.title')}</span>
+				</label>
 			{/each}
 		{/key}
-	</ListBox>
+	</div>
 </div>
