@@ -19,7 +19,7 @@
 	class="btn hover:variant-soft-primary"
 	use:popup={{ event: 'click', target: 'localization', closeQuery: 'a[href]' }}
 >
-	<span class="font-semibold hidden sm:block">{localization.name}</span>
+	<span class="font-semibold">{localization.name}</span>
 </button>
 <div class="card p-4 w-60 shadow-xl" data-popup="localization">
 	<nav class="my-1 list-nav pl-4 pr-4 -m-4 max-h-64 lg:max-h-[500px] overflow-y-auto">
