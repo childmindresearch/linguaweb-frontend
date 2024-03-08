@@ -41,12 +41,12 @@
 	}
 </script>
 
-<div class="grid grid-cols-2 gap-y-5">
+<div class="grid grid-cols-1 gap-y-5 sm:grid-cols-4">
 	{#each choices as choice, index}
 		<div class="relative flex justify-center items-center">
 			<button
 				type="button"
-				class={'btn btn-xl min-w-36 ' + colors[index]}
+				class={'btn btn-xl min-w-36 max-w-36 ' + colors[index]}
 				disabled={isCorrect}
 				on:click={(e) => checkResponse(e, choice)}
 			>

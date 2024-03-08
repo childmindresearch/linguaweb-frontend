@@ -35,7 +35,9 @@
 {#if !targetWord || !distractors}
 	<LoadingBar />
 {:else}
-	<h4 class="h4 font-semibold text-center">{$_('tasks.' + task + '.description')}</h4>
-	<p class="pb-5 text-center">{arrayToString(targetWord[task])}</p>
-	<ResponseMultipleChoice correct={targetWord} {distractors} on:click={onCheck} />
+	<div class="space-y-5">
+		<h4 class="h4 font-semibold text-center">{$_('tasks.' + task + '.description')}</h4>
+		<p class="pb-5 text-center">{arrayToString(targetWord[task])}</p>
+		<ResponseMultipleChoice correct={targetWord} {distractors} on:click={onCheck} />
+	</div>
 {/if}

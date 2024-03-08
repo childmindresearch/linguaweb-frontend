@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Score from '$lib/components/Score.svelte';
 	import { getWordIds, postCheckWord, type TaskName } from '$lib/api';
 	import { onMount } from 'svelte';
 	import TaskHandler from '$lib/components/tasks/TaskHandler.svelte';
@@ -7,8 +6,6 @@
 	import { locale } from 'svelte-i18n';
 	import { ageStore, taskStore } from '$lib/store';
 
-	let score = 0;
-	let maxScore = 0;
 	let currentWordId: number;
 	let currentTask: TaskName;
 
@@ -33,8 +30,6 @@
 	async function onCheck(event: CustomEvent) {
 		const guessedWord = event.detail;
 		const isCorrect = await postCheckWord(currentWordId, guessedWord);
-		score += +isCorrect;
-		maxScore++;
 		if (isCorrect) {
 			setNextTask();
 		}
@@ -53,10 +48,6 @@
 	$: $locale, $ageStore, taskSetter();
 </script>
 
-<div class="score">
-	<Score {score} {maxScore} />
-</div>
-
 {#if ids.length == 0}
 	<LoadingBar label="Starting up, please wait a moment..." />
 {:else if $taskStore.length > 0 && currentWordId}
@@ -68,19 +59,3 @@
 {:else}
 	<p>Please select a task.</p>
 {/if}
-
-<style>
-	.score {
-		right: 2.75rem;
-		top: 6.7rem;
-	}
-
-	@media (max-width: 640px) {
-		.score {
-			position: absolute;
-			right: 50%;
-			top: 95%;
-			transform: translate(50%, 0%);
-		}
-	}
-</style>
