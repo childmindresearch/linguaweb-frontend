@@ -41,6 +41,6 @@
 	"dependencies": {
 		"@floating-ui/dom": "^1.6.3",
 		"@sveltejs/adapter-static": "^3.0.1",
-		"flowbite-svelte-icons": "^1.4.1"
+		"flowbite-svelte-icons": "^1.5.0"
 	}
 }
